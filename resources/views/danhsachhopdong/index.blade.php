@@ -22,7 +22,6 @@ Danh sach ten hop dong
             <th>Nhom hop dong</th>
             <th>Sua</th>
             <th>Xoa</th>
-            
         </tr>
     </thead>
     <tbody>

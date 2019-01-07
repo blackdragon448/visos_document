@@ -17,17 +17,13 @@ class nhanvienseeder extends Seeder
         $list=[];
         $uFN=new VnFullname();
         $nPI=new vnPersonalInfo();
-        $roles=6;
-        $employees=[1,1,1,2,2,2];
-        $ages=[30,32,22,18,45,24];
-        $genders=[VnBase::VnFemale, VnBase::VnMale, VnBase::VnFemale, VnBase::VnMale, VnBase::VnFemale, VnBase::VnMale];
         $faker=Faker\Factory::create('vi_VN');
         $hinh=array('nhanvien1.jpg', 'nhanvien2.jpg', 'nhanvien3.jpg', 'nhanvien4.jpg');
         $today=new DateTime('2018-12-27 09:00:00');
         array_push($list, [
-            'NV_ma'=>1,
-            'NV_namSinh'=>$todat->format('Y-m-d H:i:s'),
-            'NV_chungMinh'=>"123456789",
+            'NV_ten'=>"Nguyen".$i,
+            'NV_namSinh'=>$today->format('Y-m-d H:i:s'),
+            'NV_chungMinh'=>$i,
             'NV_diaChi'=>"unknown",
             'NV_dienThoai'=>"0123456789",
             'NV_mail'=>"unknown@gmail.com",
@@ -40,5 +36,4 @@ class nhanvienseeder extends Seeder
             'PQ_ma'=>6
         ]);
     }
-    
 }
