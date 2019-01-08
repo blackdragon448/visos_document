@@ -33,7 +33,7 @@ class nhomhdrequest extends FormRequest
     public function messages(){
         return [
             'NHD_ten.required'=>'ten nhom bat buoc nhap',
-            'NHT_ten.unique'=>'Ten nhom da co trong he thong. Vui long kiem tra lai',
+            'NHD_ten.unique'=>'Ten nhom da co trong he thong. Vui long kiem tra lai',
             'NHD_ten.max'=>'Ten nhom vuot qua ky tu cho phep',
             'NHD_taoMoi.required'=>'Ngay tao khong duoc rong'
         ];

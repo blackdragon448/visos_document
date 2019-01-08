@@ -16,20 +16,20 @@ chinh sua nhom hop dong
     <input type="hidden" name="_method" value="PUT"/>
     {{csrf_field()}}
     <div class="form-group">
-        <label for="NHD_ten">Ma nhom hop dong</label>
+        <label for="NHD_ten">ten nhom hop dong</label>
         <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" placeholder="ten nhom" value="{{$nhomhd->NHD_ten}}">
     </div>
     <div class="form-group">
-        <label for="NHD_taoMoi">Ten nhom hop dong</label>
+        <label for="NHD_taoMoi">ngay tao moi</label>
         <input type="text" class="form-control" id="NHD_taoMoi" name="NHD_taoMoi" placeholder="tao moi" value="{{$nhomhd->NHD_taoMoi}}">
     </div>
     <div class="form-group">
-        <label for="NHD_capNhat">Ten nhom hop dong</label>
+        <label for="NHD_capNhat">ngay cap nhat</label>
         <input type="text" class="form-control" id="NHD_capNhat" name="NHD_capNhat" placeholder="cap nhat" value="{{$nhomhd->NHD_capNhat}}">
     </div>
     <select name="NHD_trangThai">
-        <option value="1" {{$nhomhd->NHD_trangThai==1?"selected":""}}>khoa</option>
-        <option value="2" {{$nhomhd->NHD_trangThai==2?"selected":""}}>Kha dung</option>
+        <option value="1" {{old('NHD_trangThai', $nhomhd->NHD_trangThai)==1?"selected":""}}>khoa</option>
+        <option value="2" {{old('NHD_trangThai', $nhomhd->NHD_trangThai)==2?"selected":""}}>Kha dung</option>
     </select>
     <br/>
     <br/>

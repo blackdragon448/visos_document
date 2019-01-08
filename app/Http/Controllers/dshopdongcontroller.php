@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\danhsachhopdong;
 use App\nhomhd;
 use Session;
+use App\Http\Requests\dshopdongRequest;
 
 class dshopdongcontroller extends Controller
 {
@@ -32,5 +33,32 @@ class dshopdongcontroller extends Controller
         Session::flash('alert-info', 'them moi hop dong thanh cong!');
         return redirect()->route('danhsachhopdong.index');
     
+    }
+    public function edit($id)
+    {
+        $dshopdong=danhsachhopdong::where("HD_ma", $id)->first();
+        $nhomhd=nhomhd::all();
+        return view('danhsachhopdong.edit')->with('danhsachhopdong', $dshopdong)
+        ->with('dsnhomhopdong', $nhomhd);
+    }
+    public function update(Request $request, $id)
+    {
+        $dshopdong = danhsachhopdong::where("HD_ma", $id)->first();
+        $dshopdong->HD_ten=$request->HD_ten;
+        $dshopdong->HD_taoMoi=$request->HD_taoMoi;
+        $dshopdong->HD_capNhat=$request->HD_capNhat;
+        $dshopdong->HD_trangThai=$request->HD_trangThai;
+        $dshopdong->NHD_ma=$request->NHD_ma;
+        $dshopdong->save();
+        Session::flash('alert-info', 'cap nhat hop dong thanh cong!');
+        return redirect()->route('danhsachhopdong.index');
+    
+    }
+    public function destroy($id)
+    {
+        $dshopdong=danhsachhopdong::where("HD_ma", $id)->first();
+        $dshopdong->delete();
+        Session::flash('alert-danger', 'xoa du lieu thanh cong');
+        return redirect()->route('danhsachhopdong.index');
     }
 }

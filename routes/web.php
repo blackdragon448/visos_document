@@ -18,5 +18,5 @@ Route::get('/', function () {
 
 // Route::put('/dsnhomhopdong/{id}', 'nhomhdcontroller@update')->name('dsnhomhopdong.update');
 Route::resource('/dsnhomhopdong', 'nhomhdcontroller');
-Route::get('/danhsachhopdong', 'dshopdongcontroller@index')->name('danhsachhopdong.index');
+// Route::get('/danhsachhopdong', 'dshopdongcontroller@index')->name('danhsachhopdong.index');
 Route::resource('/danhsachhopdong', 'dshopdongcontroller');

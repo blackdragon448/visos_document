@@ -19,16 +19,16 @@ class nhomhdcontroller extends Controller
     {
         $nhomhd=nhomhd::where("NHD_ma", $id)->first();
         return view('nhomhd.edit')
-        ->with('nhomhd', $nhomhd);
+        ->with('dsnhomhopdong', $nhomhd);
     }
     
     public function update(nhomhdrequest $request, $id)
     {
         $nhomhd= nhomhd::where("NHD_ma", $id)->first();
         $nhomhd->NHD_ten=$request->NHD_ten;
-        $nhomhd->NHD_taoMoi->$request->NHD_taoMoi;
-        $nhomhd->NHD_capNhat->$request->NHD_capNhat;
-        $nhomhd->NHD_trangThai->$request->NHD_trangThai;
+        $nhomhd->NHD_taoMoi=$request->NHD_taoMoi;
+        $nhomhd->NHD_capNhat=$request->NHD_capNhat;
+        $nhomhd->NHD_trangThai=$request->NHD_trangThai;
         $nhomhd->save();
         Session::flash('alert-info', 'Cap nhat thanh cong nhom hop dong!');
         return redirect()->route('dsnhomhopdong.index');
@@ -42,16 +42,16 @@ class nhomhdcontroller extends Controller
     }
     public function create(){
         $nhomhd=nhomhd::all();
-        return view('dsnhomhopdong.create')
+        return view('nhomhd.create')
         ->with('dsnhomhopdong', $nhomhd);
     }
     public function store(Request $request)
     {
         $nhomhd= new nhomhd();
         $nhomhd->NHD_ten=$request->NHD_ten;
-        $nhomhd->NHD_taoMoi->$request->NHD_taoMoi;
-        $nhomhd->NHD_capNhat->$request->NHD_capNhat;
-        $nhomhd->NHD_trangThai->$request->NHD_trangThai;
+        $nhomhd->NHD_taoMoi=$request->NHD_taoMoi;
+        $nhomhd->NHD_capNhat=$request->NHD_capNhat;
+        $nhomhd->NHD_trangThai=$request->NHD_trangThai;
         $nhomhd->save();
         Session::flash('alert-info', 'tao moi thanh cong nhom hop dong!');
         return redirect()->route('dsnhomhopdong.index');

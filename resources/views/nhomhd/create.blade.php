@@ -12,10 +12,6 @@ Them moi nhom hop dong
 </div>
 <form method="post" action="{{route('dsnhomhopdong.store')}}" entype="multipart/form-data">
     <div class="form-group">
-        <label for="NHD_ma">Ma nhom hop dong</label>
-        <input type="text" class="form-control" id="NHD_ma" name="NHD_ma" placeholder="ma nhom" value="{{old('NHD_ma')}}">
-    </div>
-    <div class="form-group">
         <label for="NHD_ten">Ten nhom hop dong</label>
         <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" placeholder="ten nhom" value="{{old('NHD_ten')}}">
     </div>

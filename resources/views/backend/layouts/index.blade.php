@@ -30,7 +30,7 @@
 @include('backend.layouts.partials.footer')
 </div>
 <script src="{{asset('theme/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('theme/gentelella/vendors/bootstrap/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('theme/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
 @yield('custom-scripts')
 </body>
 </html>

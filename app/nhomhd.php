@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class nhomhd extends Model
 {
-    const CREATE_AT = 'NHD_taoMoi';
-    const UPDATE_AT = 'NHD_capNhat';
+    const CREATED_AT = 'NHD_taoMoi';
+    const UPDATED_AT = 'NHD_capNhat';
 
     protected $table = 'visos_nhomHopdong';
     protected $fillable = ['NHD_ten', 'NHD_taoMoi', 'NHD_capNhat', 'NHD_trangThai'];
