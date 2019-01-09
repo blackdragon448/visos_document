@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::resource('/dsnhomhopdong', 'nhomhdcontroller');
 // Route::get('/danhsachhopdong', 'dshopdongcontroller@index')->name('danhsachhopdong.index');
 Route::resource('/danhsachhopdong', 'dshopdongcontroller');
+Route::resource('/danhsachnhanvien, nhanvienController');

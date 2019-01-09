@@ -31,11 +31,12 @@ class nhanvienseeder extends Seeder
                 'NV_website'=>"visos_document.com.vn",
                 'NV_hinhAnh'=>$faker->randomElements($hinh)[0],
                 'NV_user'=>"unknown",
-                'NV_password'=>bcrypt('123456'),
+                'NV_password'=>bcrypt('123455678'),
                 'NV_taoMoi'=>$today->format('Y-m-d H:i:s'),
                 'NV_capNhat'=>$today->format('Y-m-d H:i:s'),
                 'PQ_ma'=>$faker->numberBetween(1,6)
             ]);
         }
+        DB::table('visos_nhanvien')->insert($list);
     }
 }

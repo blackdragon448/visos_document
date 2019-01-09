@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-Them moi nhom hop dong
+them moi hop dong
 @endsection
 @section('custom-css')
 <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
@@ -9,7 +9,7 @@ Them moi nhom hop dong
 @endsection
 @section('main-content')
 @if($errors->any())
-    <div clss="alert-danger">
+    <div class="alert alert-danger">
         <ul>
             @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
@@ -17,27 +17,26 @@ Them moi nhom hop dong
         </ul>
     </div>
 @endif
-<form method="post" action="{{route('dsnhomhopdong.store')}}" enctype="multipart/form-data">
-    <input type="hidden" name="_method" value="PUT"/>
+<form method="post" action="{{route('dsnhomhopdong.store')}}" enctype="multipar/form-data">
     {{csrf_field()}}
+    
     <div class="form-group">
-        <label for="NHD_ten">Ten nhom hop dong</label>
-        <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" placeholder="ten nhom" value="{{old('NHD_ten')}}">
+        <label for="NHD_ten">Ten hop dong</label>
+        <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" value="{{old('NHD_ten')}}">
     </div>
     <div class="form-group">
-        <label for="NHD_taoMoi">ngay tao moi nhom hop dong</label>
-        <input type="text" class="form-control" id="NHD_taoMoi" name="NHD_taoMoi" placeholder="ngay tao moi nhom" value="{{old('NHD_taoMoi')}}">
+        <label for="NHD_taoMoi">Ngay tao moi</label>
+        <input type="text" class="form-control" id="NHD_taoMoi" name="NHD_taoMoi" value="{{old('NHD_taoMoi')}}" data-mask-datetime>
     </div>
     <div class="form-group">
-        <label for="NHD_capNhat">ngay cap nhat nhom hop dong</label>
-        <input type="text" class="form-control" id="NHD_capNhat" name="NHD_capNhat" placeholder="ngay cap nhat nhom" value="{{old('NHD_capNhat')}}">
+        <label for="NHD_capNhat">Ngay cap nhat</label>
+        <input type="text" class="form-control" id="NHD_capNhat" name="NHD_capNhat" value="{{old('NHD_capNhat')}}" data-mask-datetime>
     </div>
     <select name="NHD_trangThai" class="form-control">
-        <option value="1" {{old('NHD_trangThai')==1? "selected": ""}}>khoa</option>
-        <option value="2" {{old('NHD_trangThai')==2? "selected": ""}}>kha dung</option>
+        <option value="1" {{old('NHD_trangThai')==1? "selected": ""}}>Khoa</option>
+        <option value="2" {{old('NHD_trangThai')==2? "selected": ""}}>Kha dung</option>
     </select>
     <button type="submit" class="btn btn-primary">Luu</button>
-    <a href="{{route('dsnhomhopdong.index')}}" class="btn btn-primary">Quay lai</a>
 </form>
 @endsection
 @section('custom-scripts')

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class nhomhdrequest extends FormRequest
+class nhomhdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,18 @@ class nhomhdrequest extends FormRequest
     public function rules()
     {
         return [
-            'NHD_ten'=>'required|unique:visos_nhomHopdong|max:60',
+            'NHD_ten'=>'require|unique:visos_nhomhopdong|max:60',
             'NHD_taoMoi'=>'required',
-            'NHD_capNhat'=>'required',
+            'NHD_capNHat'=>'required',
             'NHD_trangThai'=>'required',
         ];
     }
     public function messages(){
-        return [
-            'NHD_ten.required'=>'ten nhom bat buoc nhap',
-            'NHD_ten.unique'=>'Ten nhom da co trong he thong. Vui long kiem tra lai',
-            'NHD_ten.max'=>'Ten nhom vuot qua ky tu cho phep',
-            'NHD_taoMoi.required'=>'Ngay tao khong duoc rong'
+        return[
+            'NHD_ten.required'=>'ten nhom khong bo trong',
+            'NHD_ten.unique'=>'ten nhom da co trong he thong. vui long kiem tra lai',
+            'NHD_ten.max'=>'ten nhom vuot qua ky tu cho phep',
+            'NHD_taoMoi'=>'ngay tao moi khong de trong'
         ];
     }
 }
