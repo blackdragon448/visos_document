@@ -2,10 +2,6 @@
 @section('title')
 Danh nhan vien
 @endsection
-@section('custom-css')
-<link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
-<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
-
 @section('main-content')
 <div class="flash-message">
     @foreach(['danger', 'warning', 'success', 'info'] as $msg)
