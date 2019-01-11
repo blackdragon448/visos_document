@@ -20,6 +20,6 @@ class phanquyen extends Model
 
     public function danhsachnhanvien()
     {
-        return $this->hasMany('App\danhsachnhanvien', 'PQ_ma', 'PQ_ma');
+        return $this->hasMany('App\nhanvien', 'PQ_ma', 'PQ_ma');
     } 
 }

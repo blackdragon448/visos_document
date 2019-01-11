@@ -11,10 +11,10 @@ Danh nhan vien
     @endforeach
 </div>
 <a href="{{route('danhsachnhanvien.create')}}" class="btn btn-primary">Them moi nhan vien</a>
-<table border="1">
+<table border="1px solid black" align="center">
     <thead>
         <tr style="text-size: 14px, color: red ">
-            <th>ma NV>
+            <th>ma NV</th>
             <th>hinh anh</th>
             <th>Ho ten</th>
             <th>Nam sinh</th>
@@ -32,17 +32,17 @@ Danh nhan vien
     <tbody>
         @foreach($danhsachnhanvien as $dsnhanvien)
             <tr>
-                <td>{{$snhanvien->NV_ma}}</td>
+                <td>{{$dsnhanvien->NV_ma}}</td>
                 <td><img src="{{asset('storage/photos/' . $dsnhanvien->NV_hinhAnh)}}" class="img-list"/></td>
-                <td>{{$snhanvien->NV_ten}}</td>
-                <td>{{$snhanvien->NV_namSinh}}</td>
-                <td>{{$snhanvien->NV_chungMinh}}</td>
-                <td>{{$snhanvien->NV_diaChi}}</td>
-                <td>{{$snhanvien->NV_dienThoai}}</td>
-                <td>{{$snhanvien->NV_mail}}</td>
-                <td>{{$snhanvien->NV_website}}</td>
-                <td>{{$snhanvien->NV_taoMoi}}</td>
-                <td>{{$snhanvien->NV_capNhat}}</td>
+                <td>{{$dsnhanvien->NV_ten}}</td>
+                <td>{{$dsnhanvien->NV_namSinh}}</td>
+                <td>{{$dsnhanvien->NV_chungMinh}}</td>
+                <td>{{$dsnhanvien->NV_diaChi}}</td>
+                <td>{{$dsnhanvien->NV_dienThoai}}</td>
+                <td>{{$dsnhanvien->NV_mail}}</td>
+                <td>{{$dsnhanvien->NV_website}}</td>
+                <td>{{$dsnhanvien->NV_taoMoi}}</td>
+                <td>{{$dsnhanvien->NV_capNhat}}</td>
                 <td><a href="{{route('danhsachnhanvien.edit', ['id'=>$dsnhanvien->NV_ma])}}" class="btn btn-primary">Sua</td>
                 <td>
                     <form method="post" action="{{route('danhsachnhanvien.destroy',['id'=>$dsnhanvien->NV_ma])}}">

@@ -5,58 +5,95 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\nhanvien;
 use Session;
-
+use validation;
+use App\phanquyen;
 class nhanvienController extends Controller
 {
     public function index()
     {
         $dsnhanvien=nhanvien::all();
-        return view('danhsachnhanvien.index')
+        return view('nhanvien.index')
         ->with('danhsachnhanvien', $dsnhanvien);
     }
     public function create()
     {
-        $dsnhanvien = nhanvien::all();
-        return view('danhsachnhanvien.create')->with('dsnhanvien', $dsnhanvien);
+        $phanquyen = phanquyen::all();
+        return view('nhanvien.create')->with('dsphanquyen', $phanquyen);
     }
     public function store(Request $request)
     {
-        $dsnhanvien = new danhsachhopdong();
-        $dsnhanvien->HD_ten=$request->HD_ten;
-        $dsnhanvien->HD_taoMoi=$request->HD_taoMoi;
-        $dsnhanvien->HD_capNhat=$request->HD_capNhat;
-        $dsnhanvien->HD_trangThai=$request->HD_trangThai;
-        $dsnhanvien->NHD_ma=$request->NHD_ma;
+        $validation=$request->validate([
+            'NV_hinhAnh'=>'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+        $dsnhanvien = new danhsachnhanvien();
+        $dsnhanvien->NV_ten=$request->NV_ten;
+        $dsnhanvien->NV_namSinh=$request->NV_namSinh;
+        $dsnhanvien->NV_chungMinh=$request->NV_chungMinh;
+        $dsnhanvien->NV_diaChi=$request->NV_diaChi;
+        $dsnhanvien->NV_dienThoai=$request->NV_dienThoai;
+        $dsnhanvien->NV_mail=$request->NV_mail;
+        $dsnhanvien->NV_website=$request->NV_wedsite;
+        $dsnhanvien->NV_taoMoi=$request->NV_taoMoi;
+        $dsnhanvien->NV_capNhat=$request->NV_capNhat;
+        $dsnhanvien->NV_trangThai=$request->NV_trangThai;
+        $dsnhanvien->PQ_ma=$request->PQ_ma;
+        if($request->hasFile('NV_hinhAnh'))
+        {
+            $file=$request->NV_hinhAnh;
+            $dsnhanvien=$file->storeAs('public/photos', $dsnhanvien->NV_hinhAnh);
+        }
         $dsnhanvien->save();
-        Session::flash('alert-info', 'them moi hop dong thanh cong!');
-        return redirect()->route('danhsachhopdong.index');
+        Session::flash('alert-info', 'them moi nhan vien thanh cong!');
+        return redirect()->route('danhsachnhanvien.index');
     
     }
     public function edit($id)
     {
-        $dshopdong=danhsachhopdong::where("HD_ma", $id)->first();
-        $nhomhd=nhomhd::all();
-        return view('danhsachhopdong.edit')->with('danhsachhopdong', $dshopdong)
-        ->with('dsnhomhopdong', $nhomhd);
+        $dsnhanvien=nhanvien::where("NV_ma", $id)->first();
+        $phanquyen=phanquyen::all();
+        return view('nhanvien.edit')->with('danhsachnhanvien', $dsnhanvien)
+        ->with('dsphanquyen', $phanquyen);
     }
     public function update(Request $request, $id)
     {
-        $dshopdong = danhsachhopdong::where("HD_ma", $id)->first();
-        $dshopdong->HD_ten=$request->HD_ten;
-        $dshopdong->HD_taoMoi=$request->HD_taoMoi;
-        $dshopdong->HD_capNhat=$request->HD_capNhat;
-        $dshopdong->HD_trangThai=$request->HD_trangThai;
-        $dshopdong->NHD_ma=$request->NHD_ma;
-        $dshopdong->save();
-        Session::flash('alert-info', 'cap nhat hop dong thanh cong!');
-        return redirect()->route('danhsachhopdong.index');
+        $validation = $request->validate([
+            'NV_hinhAnh'=>'file|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+        $dsnhanvien = nhanvien::where("NV_ma", $id)->first();
+        $dsnhanvien->NV_ten=$request->NV_ten;
+        $dsnhanvien->NV_namSinh=$request->NV_namSinh;
+        $dsnhanvien->NV_chungMinh=$request->NV_chungMinh;
+        $dsnhanvien->NV_diaChi=$request->NV_diaChi;
+        $dsnhanvien->NV_dienThoai=$request->NV_dienThoai;
+        $dsnhanvien->NV_mail=$request->NV_mail;
+        $dsnhanvien->NV_website=$request->NV_wedsite;
+        $dsnhanvien->NV_taoMoi=$request->NV_taoMoi;
+        $dsnhanvien->NV_capNhat=$request->NV_capNhat;
+        $dsnhanvien->NV_trangThai=$request->NV_trangThai;
+        $dsnhanvien->PQ_ma=$request->PQ_ma;
+        if($request->hasFile('NV_hinhAnh'))
+        {
+            Storage::delete('public/photos/'. $dsnhanvien->NV_hinhAnh);
+            $file=$request->NV_hinhAnh;
+            $dsnhanvien->NV_hinhAnh=$file->getClientOriginalName();
+            $fileSaved=$file->storeAs('public/photos', $dsnhanvien->NV_hinhAnh);
+        }
+       
+        $dsnhanvien->save();
+        Session::flash('alert-info', 'cap nhat thong tin nhan vien thanh cong!');
+        return redirect()->route('danhsachnhanvien.index');
     
     }
     public function destroy($id)
     {
-        $dshopdong=danhsachhopdong::where("HD_ma", $id)->first();
-        $dshopdong->delete();
+        
+        $dsnhanvien=nhanvien::where("NV_ma", $id)->first();
+        if(empty($dsnhanvien)==false)
+        {
+            Storage::delete('public/photos/');
+        }
+        $dsnhanvien->delete();
         Session::flash('alert-danger', 'xoa du lieu thanh cong');
-        return redirect()->route('danhsachhopdong.index');
+        return redirect()->route('danhsachnhanvien.index');
     }
 }
