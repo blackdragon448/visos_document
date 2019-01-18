@@ -10,7 +10,6 @@ Tao moi nhan vien
             @endforeach
         </ul>
     </div>
-
 @endif
 <form method="post" action="{{route('danhsachnhanvien.store', ['id'=>$dsnhanvien->NV_ma])}}" enctype="multipart/form-data"> 
     <input type="hidden" name="_method" value="PUT"/>
@@ -80,7 +79,6 @@ Tao moi nhan vien
     <a href="{{route('danhsachnhanvien.index')}}" class="btn btn-primary">Quy lai</a>
 </form>
 
-@endsection
 @section('custom-scripts')
 <script src="{{asset('vendor/bootstrap-fileinput/js/plugins/sortable.js')}}" type="text/javascript"></script>
 <script src="{{asset('vendor/bootstrap-fileinput/js/fileinput.js')}}" type="text/javascript"></script>

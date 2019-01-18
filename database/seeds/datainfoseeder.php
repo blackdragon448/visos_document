@@ -18,17 +18,12 @@ class datainfoseeder extends Seeder
         $uFN=new VnFullname();
         $uPI=new VnPersonalInfo();
         $faker =Faker\Factory::create('vi_VN');
-        
         for ($i=1; $i <=30; $i++){
             $today=new DateTime();
             array_push($list, [
                 'd_ngaycc'=>$today->format('Y-m-d H:s:i'),
                 'd_socc'=>$i,
-                
-                'd_capNhat'=>$today->format('Y-m-d H:s:i'),
-                'd_taoMoi'=>$today->format('Y-m-d H:s:i'),
-                'd_trangThai'=>$i,
-                'NHD_ma'=>$faker->numberBetween(1,5)
+
             ]);
         }
         DB::table('visos_tenHopdong')->insert($list);
