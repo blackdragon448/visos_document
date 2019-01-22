@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-them moi hop dong
+Thêm mới nhóm hợp đồng
 @endsection
 @section('custom-css')
 <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
@@ -21,15 +21,15 @@ them moi hop dong
     {{csrf_field()}}
     
     <div class="form-group">
-        <label for="NHD_ten">Ten hop dong</label>
+        <label for="NHD_ten">Tên nhóm hợp đồng</label>
         <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" value="{{old('NHD_ten')}}">
     </div>
     <div class="form-group">
-        <label for="NHD_taoMoi">Ngay tao moi</label>
+        <label for="NHD_taoMoi">Ngày tạo</label>
         <input type="text" class="form-control" id="NHD_taoMoi" name="NHD_taoMoi" value="{{old('NHD_taoMoi')}}" data-mask-datetime>
     </div>
     <div class="form-group">
-        <label for="NHD_capNhat">Ngay cap nhat</label>
+        <label for="NHD_capNhat">Ngày cập nhật</label>
         <input type="text" class="form-control" id="NHD_capNhat" name="NHD_capNhat" value="{{old('NHD_capNhat')}}" data-mask-datetime>
     </div>
     <select name="NHD_trangThai" class="form-control">

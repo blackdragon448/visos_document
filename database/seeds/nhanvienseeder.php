@@ -23,7 +23,7 @@ class nhanvienseeder extends Seeder
             $today=new DateTime();
             array_push($list, [
                 'NV_ten'=>"Nguyen $i",
-                'NV_namSinh'=>$today->format('Y-m-d H:i:s'),
+                'NV_namSinh'=>$today->format('Y-m-d'),
                 'NV_chungMinh'=>$i,
                 'NV_diaChi'=>"unknown",
                 'NV_dienThoai'=>"0123456789",
@@ -31,7 +31,7 @@ class nhanvienseeder extends Seeder
                 'NV_website'=>"visos_document.com.vn",
                 'NV_hinhAnh'=>$faker->randomElements($hinh)[0],
                 'NV_user'=>"unknown",
-                'NV_password'=>bcrypt('123455678'),
+                'NV_password'=>"123455678",
                 'NV_taoMoi'=>$today->format('Y-m-d H:i:s'),
                 'NV_capNhat'=>$today->format('Y-m-d H:i:s'),
                 'PQ_ma'=>$faker->numberBetween(1,6)

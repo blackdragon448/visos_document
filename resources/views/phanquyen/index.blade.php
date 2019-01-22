@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-Danh sach nhom phan quyen
+Danh sách nhóm phân quyền
 @endsection
 @section('main-content')
 <div class="flash-message">
@@ -13,10 +13,10 @@ Danh sach nhom phan quyen
 <table border="1">
     <thead>
         <tr style="text-size: 14px, color: red ">
-            <th>ma</th>
-            <th>ten nhom HD</th>
-            <th>Sua</th>
-            <th>Xoa</th>
+            <th>Mã phân quyền</th>
+            <th>Tên phân quyền</th>
+            <th>Sửu</th>
+            <th>Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@ Danh sach nhom phan quyen
         @endforeach
     </tbody>
 </table>
-<a href="{{route('dsphanquyen.create')}}" name="Them Moi" class="btn btn-primary">Them moi</a>
+<a href="{{route('dsphanquyen.create')}}" name="Them Moi" class="btn btn-primary">Thêm mới</a>
 <button type="submit" class="btn btn-primary">Thoat</button>
 
 @endsection

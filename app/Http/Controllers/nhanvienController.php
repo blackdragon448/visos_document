@@ -7,6 +7,7 @@ use App\nhanvien;
 use Session;
 use validation;
 use App\phanquyen;
+use Storage;
 class nhanvienController extends Controller
 {
     public function index()
@@ -25,8 +26,10 @@ class nhanvienController extends Controller
         $validation=$request->validate([
             'NV_hinhAnh'=>'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
         ]);
-        $dsnhanvien = new danhsachnhanvien();
+        $dsnhanvien = new nhanvien();
         $dsnhanvien->NV_ten=$request->NV_ten;
+        $dsnhanvien->NV_user=$request->NV_user;
+        $dsnhanvien->NV_password=$request->NV_password;
         $dsnhanvien->NV_namSinh=$request->NV_namSinh;
         $dsnhanvien->NV_chungMinh=$request->NV_chungMinh;
         $dsnhanvien->NV_diaChi=$request->NV_diaChi;
@@ -40,10 +43,11 @@ class nhanvienController extends Controller
         if($request->hasFile('NV_hinhAnh'))
         {
             $file=$request->NV_hinhAnh;
-            $dsnhanvien=$file->storeAs('public/photos', $dsnhanvien->NV_hinhAnh);
+            $dsnhanvien->NV_hinhAnh=$file->getClientOriginalName();
+            $fileSaved=$file->storeAs('public/photos', $dsnhanvien->NV_hinhAnh);
         }
         $dsnhanvien->save();
-        Session::flash('alert-info', 'them moi nhan vien thanh cong!');
+        Session::flash('alert-info', 'Thêm mới nhân viên thành công!');
         return redirect()->route('danhsachnhanvien.index');
     
     }
@@ -61,6 +65,8 @@ class nhanvienController extends Controller
         ]);
         $dsnhanvien = nhanvien::where("NV_ma", $id)->first();
         $dsnhanvien->NV_ten=$request->NV_ten;
+        $dsnhanvien->NV_user=$request->NV_user;
+        $dsnhanvien->NV_password=$request->NV_password;
         $dsnhanvien->NV_namSinh=$request->NV_namSinh;
         $dsnhanvien->NV_chungMinh=$request->NV_chungMinh;
         $dsnhanvien->NV_diaChi=$request->NV_diaChi;
@@ -80,7 +86,7 @@ class nhanvienController extends Controller
         }
        
         $dsnhanvien->save();
-        Session::flash('alert-info', 'cap nhat thong tin nhan vien thanh cong!');
+        Session::flash('alert-info', 'Cập nhật nhân viên thành công!');
         return redirect()->route('danhsachnhanvien.index');
     
     }
@@ -93,7 +99,7 @@ class nhanvienController extends Controller
             Storage::delete('public/photos/');
         }
         $dsnhanvien->delete();
-        Session::flash('alert-danger', 'xoa du lieu thanh cong');
+        Session::flash('alert-danger', 'Xóa nhân viên thành công!');
         return redirect()->route('danhsachnhanvien.index');
     }
 }

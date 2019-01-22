@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-Danh nhan vien
+Danh sách nhân viên
 @endsection
 @section('main-content')
 <div class="flash-message">
@@ -10,23 +10,23 @@ Danh nhan vien
         @endif
     @endforeach
 </div>
-<a href="{{route('danhsachnhanvien.create')}}" class="btn btn-primary">Them moi nhan vien</a>
-<table border="1px solid black" align="center">
+<a href="{{route('danhsachnhanvien.create')}}" class="btn btn-primary">Thêm mới</a>
+<table align="center">
     <thead>
-        <tr style="text-size: 14px, color: red ">
-            <th>ma NV</th>
-            <th>hinh anh</th>
-            <th>Ho ten</th>
-            <th>Nam sinh</th>
-            <th>Chung minh</th>
-            <th>Dia chi</th>
-            <th>Dien thoai</th>
+        <tr style="weight:auto">
+            <th>Mã Nhân viên</th>
+            <th>Hình đại diện</th>
+            <th>Họ và Tên</th>
+            <th>Năm sinh</th>
+            <th>Chứng Minh</th>
+            <th>Địa chỉ</th>
+            <th>Điện thoại</th>
             <th>Email</th>
             <th>website</th>
-            <th>Ngay tao moi</th>
-            <th>ngay cap nhat</th>
-            <th>Sua</th>
-            <th>Xoa</th>
+            <th>Ngày tạo mới</th>
+            <th>Ngày cập nhật</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -56,6 +56,6 @@ Danh nhan vien
     </tbody>
 </table>
 
-<button type="submit" class="btn btn-primary">Thoat</button>
+<button type="submit" class="btn btn-primary">Thoát</button>
 
 @endsection

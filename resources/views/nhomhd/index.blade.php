@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-Danh sach nhom hop dong
+Danh sách nhóm hợp đồng
 @endsection
 @section('main-content')
 <div class="flash-message">
@@ -13,10 +13,10 @@ Danh sach nhom hop dong
 <table border="1">
     <thead>
         <tr style="text-size: 14px, color: red ">
-            <th>ma</th>
-            <th>ten nhom HD</th>
-            <th>Sua</th>
-            <th>Xoa</th>
+            <th>Mã nhóm</th>
+            <th>Tên nhóm họp đồng</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
         </tr>
     </thead>
     <tbody>

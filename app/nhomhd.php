@@ -22,4 +22,8 @@ class nhomhd extends Model
     {
         return $this->hasMany('App\danhsachhopdong', 'NHD_ma', 'NHD_ma');
     } 
+    public function datainfo()
+    {
+        return $this->hasMany('App\datainfo', 'NHD_ma', 'NHD_ma');
+    }
 }

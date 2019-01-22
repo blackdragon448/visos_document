@@ -27,7 +27,7 @@ class phanquyenController extends Controller
         $phanquyen->PQ_capNhat=$request->PQ_capNhat;
         $phanquyen->PQ_trangThai=$request->PQ_trangThai;
         $phanquyen->save();
-        Session::flash('alert-info', 'tao moi thanh cong!');
+        Session::flash('alert-info', 'Tạo mới thành công!');
         return redirect()->route('dsphanquyen.index');
     }
     public function edit($id)
@@ -45,14 +45,14 @@ class phanquyenController extends Controller
         $phanquyen->PQ_capNhat=$request->PQ_capNhat;
         $phanquyen->PQ_trangThai=$request->PQ_trangThai;
         $phanquyen->save();
-        Session::flash('alert-info', 'Cap nhat thanh cong!');
+        Session::flash('alert-info', 'Cập nhật thành công!');
         return redirect()->route('dsphanquyen.index');
     }
     public function destroy($id)
     {
         $phanquyen=phanquyen::where("PQ_ma", $id)->first();
         $phanquyen->delete();
-        Session::flash('alert-danger', 'xoa thanh cong!');
+        Session::flash('alert-danger', 'Đã xóa!');
         return redirect()->route('dsphanquyen.index');
     }
     

@@ -26,7 +26,8 @@ class tenhopdongseeder extends Seeder
                 'HD_capNhat'=>$today->format('Y-m-d H:s:i'),
                 'HD_taoMoi'=>$today->format('Y-m-d H:s:i'),
                 'HD_trangThai'=>$i,
-                'NHD_ma'=>$faker->numberBetween(1,5)
+                'NHD_ma'=>$faker->numberBetween(1,5),
+                'HD_ma'=>$i
             ]);
         }
         DB::table('visos_tenHopdong')->insert($list);

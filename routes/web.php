@@ -14,11 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/dsnhomhopdong/{id}', 'nhomhdcontroller@edit')->name('dsnhomhopdong.edit');
-
-// Route::put('/dsnhomhopdong/{id}', 'nhomhdcontroller@update')->name('dsnhomhopdong.update');
-Route::resource('/dsnhomhopdong', 'nhomhdcontroller');
-Route::resource('/dsphanquyen', 'phanquyenController');
-// Route::get('/danhsachhopdong', 'dshopdongcontroller@index')->name('danhsachhopdong.index');
-Route::resource('/danhsachhopdong', 'dshopdongcontroller');
-Route::resource('/danhsachnhanvien', 'nhanvienController');
+// $router->group(['middleware'=>['auth'], 'prefix'=> 'admin'], function($router)
+// {
+    Route::resource('/dsnhomhopdong', 'nhomhdcontroller');
+    Route::resource('/dsphanquyen', 'phanquyenController');
+    Route::resource('/danhsachhopdong', 'dshopdongcontroller');
+    Route::resource('/danhsachnhanvien', 'nhanvienController');
+    Route::resource('/danhsachdulieu','datainfoController');
+// });
+Auth::routes();
+Route::get('/', 'frontendController@index')->name('frontend.home');
+Route::get('/input', 'frontendController@create')->name('frontend.create');

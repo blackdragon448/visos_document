@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-them moi hop dong
+Thêm mới hợp đồng
 @endsection
 @section('custom-css')
 <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
@@ -20,7 +20,7 @@ them moi hop dong
 <form method="post" action="{{route('danhsachhopdong.store')}}" enctype="multipar/form-data">
     {{csrf_field()}}
     <div class="form-group">
-        <label for="NHD_ma">Nhom hop dong</label>
+        <label for="NHD_ma">Nhóm hợp đồng</label>
         <select name="NHD_ma" class="form-control">
             @foreach($dsnhomhopdong as $nhomhd)
                 @if(old('NHD_ma')==$nhomhd->NHD_ma)
@@ -33,22 +33,22 @@ them moi hop dong
 
     </div>
     <div class="form-group">
-        <label for="HD_ten">Ten hop dong</label>
+        <label for="HD_ten">Tên hợp đồng</label>
         <input type="text" class="form-control" id="HD_ten" name="HD_ten" value="{{old('HD_ten')}}">
     </div>
     <div class="form-group">
-        <label for="HD_taoMoi">Ngay tao moi</label>
-        <input type="text" class="form-control" id="HD_taoMoi" name="HD_taoMoi" value="{{old('HD_taoMoi')}}" data-mask-datetime>
+        <label for="HD_taoMoi">Ngày tạo</label>
+        <input type="text" class="form-control" id="HD_taoMoi" name="HD_taoMoi" value="{{today()}}" data-mask-datetime>
     </div>
     <div class="form-group">
-        <label for="HD_capNhat">Ngay cap nhat</label>
-        <input type="text" class="form-control" id="HD_capNhat" name="HD_capNhat" value="{{old('HD_capNhat')}}" data-mask-datetime>
+        <label for="HD_capNhat">Ngày cập nhật</label>
+        <input type="text" class="form-control" id="HD_capNhat" name="HD_capNhat" value="{{today()}}" data-mask-datetime>
     </div>
     <select name="HD_trangThai" class="form-control">
         <option value="1" {{old('HD_trangThai')==1? "selected": ""}}>Khoa</option>
         <option value="2" {{old('HD_trangThai')==2? "selected": ""}}>Kha dung</option>
     </select>
-    <button type="submit" class="btn btn-primary">Luu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </form>
 @endsection
 @section('custom-scripts')

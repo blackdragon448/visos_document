@@ -30,7 +30,7 @@ class dshopdongcontroller extends Controller
         $dshopdong->HD_trangThai=$request->HD_trangThai;
         $dshopdong->NHD_ma=$request->NHD_ma;
         $dshopdong->save();
-        Session::flash('alert-info', 'them moi hop dong thanh cong!');
+        Session::flash('alert-info', 'Thêm mới hợp đồng thành công!');
         return redirect()->route('danhsachhopdong.index');
     
     }
@@ -50,7 +50,7 @@ class dshopdongcontroller extends Controller
         $dshopdong->HD_trangThai=$request->HD_trangThai;
         $dshopdong->NHD_ma=$request->NHD_ma;
         $dshopdong->save();
-        Session::flash('alert-info', 'cap nhat hop dong thanh cong!');
+        Session::flash('alert-info', 'Cập nhật hợp đồng thành công!');
         return redirect()->route('danhsachhopdong.index');
     
     }
@@ -58,7 +58,7 @@ class dshopdongcontroller extends Controller
     {
         $dshopdong=danhsachhopdong::where("HD_ma", $id)->first();
         $dshopdong->delete();
-        Session::flash('alert-danger', 'xoa du lieu thanh cong');
+        Session::flash('alert-danger', 'Xóa hợp đồng thành công!');
         return redirect()->route('danhsachhopdong.index');
     }
 }

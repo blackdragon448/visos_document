@@ -35,6 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <!-- Các custom style của backend -->
   <link rel="stylesheet" href="{{ asset('css/custom-styles.css') }}">
+  <link rel="stylesheet" href="{{asset('css/tablecssdep.css')}}">
   
   <!-- Các custom style dành riêng cho từng view -->
   @yield('custom-css')
@@ -184,7 +185,34 @@ desired effect
 <script src="{{ asset('theme/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('theme/adminlte/js/adminlte.min.js') }}"></script>
-
+<script src="{{asset('js/jquery-3.2.min.js')}}"></script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>
+<script language="javascript">
+  $(document).ready(function(e){
+    var table=$('#table').DataTable({
+      responsive:true,
+      "language":{
+        "lengthMenu": "hien thi _MENU_ dong du lieu tren mot trang",
+        "info": "hien thi tu dong _START_ trong tong so _TOTAL_ dong du lieu",
+        "infoEmpty": "dong du lieu rong",
+        "processing": "dang xu ly...!",
+        "search": "Tim kiem",
+        "loadingRecords": "Dang xu ly du lieu",
+        "zeroRecords": "Khong tim thay du lieu",
+        "infoFiltered": "(ton so _MAX_ do du lieu",
+        "paginate": {
+          "first": "<|",
+          "last": "|>",
+          "next": ">>",
+          "previous": "<<",
+        }
+      },
+      "lengthMenu": [[2, 5, 10, -1], [2, 5, 10, "tat ca"]]
+    });
+    new $.fn.dataTable.FixedHeader(table);
+  });
+</script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

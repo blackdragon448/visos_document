@@ -27,7 +27,7 @@ class nhomhdcontroller extends Controller
         $nhomhd->NHD_capNhat=$request->NHD_capNhat;
         $nhomhd->NHD_trangThai=$request->NHD_trangThai;
         $nhomhd->save();
-        Session::flash('alert-info', 'tao moi thanh cong nhom hop dong!');
+        Session::flash('alert-info', 'Tạo nhóm hợp đồng thành công!');
         return redirect()->route('dsnhomhopdong.index');
     }
     public function edit($id)
@@ -45,14 +45,14 @@ class nhomhdcontroller extends Controller
         $nhomhd->NHD_capNhat=$request->NHD_capNhat;
         $nhomhd->NHD_trangThai=$request->NHD_trangThai;
         $nhomhd->save();
-        Session::flash('alert-info', 'Cap nhat thanh cong nhom hop dong!');
+        Session::flash('alert-info', 'Cập nhật thành công nhóm hợp đồng!');
         return redirect()->route('dsnhomhopdong.index');
     }
     public function destroy($id)
     {
         $nhomhd=nhomhd::where("NHD_ma", $id)->first();
         $nhomhd->delete();
-        Session::flash('alert-danger', 'xoa nhom hop dong thanh cong!');
+        Session::flash('alert-danger', 'Xóa nhóm hợp đồng thành công!');
         return redirect()->route('dsnhomhopdong.index');
     }
     

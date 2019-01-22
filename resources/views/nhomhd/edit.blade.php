@@ -1,6 +1,6 @@
 @extends('backend.layouts.index')
 @section('title')
-chinh sua nhom hop dong
+Chỉnh sửa nhóm hợp đồng
 @endsection
 @section('custom-css')
 <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
@@ -22,15 +22,15 @@ chinh sua nhom hop dong
     {{csrf_field()}}
     
     <div class="form-group">
-        <label for="NHD_ten">Hop dong ten</label>
+        <label for="NHD_ten">Tên hợp đồng</label>
         <input type="text" class="form-control" id="NHD_ten" name="NHD_ten" placeholder="ten hop dong" value="{{$dsnhomhopdong->NHD_ten}}">
     </div>
     <div class="form-group">
-        <label for="NHD_taoMoi">ngay tao moi hop dong</label>
+        <label for="NHD_taoMoi">Ngày tạo</label>
         <input type="text" class="form-control" id="NHD_taoMoi" name="NHD_taoMoi" placeholder="ngay tao moi" value="{{$dsnhomhopdong->NHD_taoMoi}}">
     </div>
     <div class="form-group">
-        <label for="NHD_capNhat">ngay cap nhat hop dong</label>
+        <label for="NHD_capNhat">Ngày cập nhật</label>
         <input type="text" class="form-control" id="NHD_capNhat" name="NHD_capNhat" placeholder="ngay cap nhat" value="{{$dsnhomhopdong->NHD_capNhat}}">
     </div>
     <select name="NHD_trangThai">

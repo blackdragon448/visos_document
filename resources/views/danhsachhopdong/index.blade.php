@@ -1,10 +1,10 @@
 @extends('backend.layouts.index')
 @section('title')
-Danh sach ten hop dong
+Danh sách hợp đồng
 @endsection
 @section('custom-css')
-<link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
-<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
+<!-- <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" crossorigin="anonymous"> -->
 
 @section('main-content')
 <div class="flash-message">
@@ -15,16 +15,16 @@ Danh sach ten hop dong
     @endforeach
 </div>
 <a href="{{route('danhsachhopdong.create')}}" name="Them Moi" class="btn btn-primary">Them moi</a>
-<table border="1">
+<table>
     <thead>
-        <tr style="text-size: 14px, color: red ">
-            <th>ma hop dong</th>
-            <th>ten hop dong</th>
-            <th>nhom hop dong</th>
-            <th>Ngay tao</th>
-            <th>Cap nhat</th>
-            <th>Sua</th>
-            <th>Xoa</th>
+        <tr>
+            <th>Mã hợp đồng</th>
+            <th>Tên hợp đồng</th>
+            <th>Nhóm hợp đồng</th>
+            <th>Ngày tạo</th>
+            <th>Ngày cập nhật</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
         </tr>
     </thead>
     <tbody>

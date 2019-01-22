@@ -18,7 +18,14 @@ class danhsachhopdong extends Model
     public function nhomhd()
     {
         return $this->belongsTo('App\nhomhd', 'NHD_ma', 'NHD_ma');
-        
+    }
+    public function danhsachhopdong()
+    {
+        return $this->belongsTo('App\danhsachhopdong', 'HD_ma', 'HD_ma');
+    }
+    public function datainfo()
+    {
+        return $this->hasMany('App\datainfo', 'd_ma', 'd_ma');
     }
 
 }
