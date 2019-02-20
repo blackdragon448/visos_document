@@ -35,43 +35,12 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('theme/cozastore/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('theme/cozastore/css/main.css') }}">
 	<!--===============================================================================================-->
-	<style>
-    .hightlight
-    {
-    background: yellow;
-    font-weight: bold;
-    }
-</style>
-<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGdpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#search").keyup(function(){
-            searchHightlight($(this).val());
-        });
-    });
-    function searchHightlight(searchText)
-    {
-        if(searchText)
-        {
-            var content=$("d_noiDungfull").text();
-            var searchExp=nee RegExp(searchText, "ig");
-            var matches=content.match(searchExp);
-            if(matches)
-            {
-                $("d_noiDungfull").html(content.replace(searchExp, function(match){
-                    return "<span class='hightlight'>" +match+"</span>";
-                }));
-            }
-        }
-    }
-    else{
-        $(".hightlight").removeClass("hightlight");
-    }
-</script>
+	
 	<!-- Các custom style của backend -->
 	<link rel="stylesheet" href="{{ asset('theme/cozastore/css/custom-styles.css') }}">
 	<link rel="stylesheet" href="{{asset('css/tablecssdep.css')}}">
-
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.im.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<!-- Các custom style dành riêng cho từng view -->
 	@yield('custom-css')
 </head>
@@ -83,6 +52,47 @@
 <!-- Main Header -->
 @include('frontend.layouts.partials.header')
 
+<style>
+		.hightlight
+		{
+			background: yellow;
+			font-weight: bold;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-2.2.3.js"
+  integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#search").keyup(function(){
+				searchHightlight($(this).val());
+		    });
+        });
+		function searchHightlight(searchText)
+		{
+		if(searchText)
+		{
+			var content=$("table").text();
+			var searchExp =new RegExp(searchText, "ig");
+			var matches = content.match(searchExp);
+			if(matches)
+			{
+				$("table").html(content.replace(searchExp, function(match){
+					return "<span class='hightlight'>"  + match + "</span>";
+				}));
+			}
+		}
+        else{
+            $(".hightlight").removeClass("hightlight");
+        }
+		
+	}
+	</script>
+	<div class="form-group">
+		<ul>
+			<input id="search" type="text" class="form-control">
+		</ul>
+	<div>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   

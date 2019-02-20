@@ -25,7 +25,7 @@ class nhanvien extends Model
 
     public function danhsachdulieu()
     {
-        return $this->hasMany('App\datainfo', 'd_ma', 'd_ma');
+        return $this->hasMany('App\datainfo', 'NV_ma', 'NV_ma');
     }
 }
 

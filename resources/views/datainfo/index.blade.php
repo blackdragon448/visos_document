@@ -13,11 +13,11 @@ DANH SÁCH HỒ SƠ - GIAO DỊCH
 <table border="1px solid black">
     <thead>
         <tr>
-            <th>Ngay CC</th>
-            <th>So CC</th>
-            <th>Loai viec CC</th>
-            <th>Noi dung chi tiet</th>
-            <th>Cong chung vien</th>
+            <th>Ngày công chứng</th>
+            <th>Số công chứng</th>
+            <th>Tên hợp đồng</th>
+            <th>Nội dung chi tiêt</th>
+            <th>Công chứng viên</th>
         </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@ DANH SÁCH HỒ SƠ - GIAO DỊCH
                 <td>{{$datainfo->d_socc}}</td>
                 <td>{{$datainfo->danhsachhopdong->HD_ten}}</td>
                 <td>{{$datainfo->d_noiDungfull}}</td>
-                <td></td>
+                <td>{{$datainfo->nhanvien->NV_ten}}</td>
             </tr>
         @endforeach
     </tbody>

@@ -22,7 +22,7 @@ class datainfoController extends Controller
     {
         $nhomhd = nhomhd::all();
         $dshopdong = danhsachhopdong::all();
-        $dsnhanvien = nhanvien::all();
+        $dsnhanvien = nhanvien::where('PQ_MA', '=', 3)->get();
         $dsphanquyen = phanquyen::all();
         return view('datainfo.create')
         ->with('dsnhomhopdong', $nhomhd)
@@ -45,7 +45,7 @@ class datainfoController extends Controller
         $datainfo->d_trangThai=$request->d_trangThai;
         $datainfo->NHD_ma=$request->NHD_ma;
         $datainfo->HD_ma=$request->HD_ma;
-        $datainfo->NV_ma=$request->VN_ma;
+        $datainfo->NV_ma=$request->NV_ma;
         
         $datainfo->save();
         Session::flash('alert-info', 'Thêm mới dữ liệu thành công!');

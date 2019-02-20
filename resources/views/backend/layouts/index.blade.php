@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <!-- Các custom style của backend -->
   <link rel="stylesheet" href="{{ asset('css/custom-styles.css') }}">
-  <link rel="stylesheet" href="{{asset('css/tablecssdep.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/tablecssdep.css')}}">
   
   <!-- Các custom style dành riêng cho từng view -->
   @yield('custom-css')

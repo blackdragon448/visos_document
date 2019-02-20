@@ -86,9 +86,9 @@ Thêm mới nhân viên
         <label for="NV_capNhat">Ngày cập nhật</label>
         <input type="text" class="form-control" id="NV_capNhat" name="NV_capNhat" placeholder="ngay cap nhat nhan vien" value="{{today()}}">
     </div>
-    <select name="sp_trangThai" class="form-control">
-        <option value="1" {{ old('sp_trangThai') == 1 ? "selected" : "" }}>Khóa</option>
-        <option value="2" {{ old('sp_trangThai') == 2 ? "selected" : "" }}>Khả dụng</option>
+    <select name="NV_trangThai" class="form-control">
+        <option value="1" {{ old('NV_trangThai') == 1 ? "selected" : "" }}>Khóa</option>
+        <option value="2" {{ old('NV_trangThai') == 2 ? "selected" : "" }}>Khả dụng</option>
     </select>
 
     <button type="submit" class="btn btn-primary">Lưu</button>

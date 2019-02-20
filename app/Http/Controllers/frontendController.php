@@ -14,9 +14,10 @@ class frontendController extends Controller
 {
     public function index()
     {
-        $datainfo=datainfo::all();
+        $datainfo=datainfo::paginate(5);
         return view('frontend.index')
-        ->with('danhsachdulieu', $datainfo);
+        ->with('danhsachdulieu', $datainfo)
+        ;
     }
    
     public function create()
@@ -35,7 +36,10 @@ class frontendController extends Controller
         $datainfo->d_noiDungA=$request->d_noiDungA;
         $datainfo->d_noiDungB=$request->d_noiDungB;
         $datainfo->d_noiDungC=$request->d_noiDungC;
-        $datainfo->d_noiDungfull=$request->d_noiDungA . $request->d_noiDungB . $request->d_noiDungC;
+        $datainfo->d_noiDungfull=$request->d_noiDungA . 
+        $request->d_noiDungB . 
+        $request->d_noiDungC . 
+        $request->d_taiSan;
         $datainfo->d_taiSan=$request->d_taisan;
         $datainfo->d_dienThoai=$request->d_dienThoai;
         $datainfo->d_ngayTao=$request->d_ngayTao;
@@ -87,6 +91,12 @@ class frontendController extends Controller
         return redirect()->route('danhsachdatainfo.index');
     
     }
+    private function searchdatainfo(Request $request)
+    {
+        $query = DB::table('visos_datainfo')->select('*');
+        $data=$query->get();
+        return $data;
+    }
     // public function destroy($id)
     // {
         
@@ -99,4 +109,4 @@ class frontendController extends Controller
     //     Session::flash('alert-danger', 'xoa du lieu thanh cong');
     //     return redirect()->route('danhsachdatainfo.index');
     // }
-}
+    }

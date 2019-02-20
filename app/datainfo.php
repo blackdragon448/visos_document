@@ -29,6 +29,6 @@ class datainfo extends Model
 
     public function nhanvien()
     {
-        return $this->hasMany('App\nhanvien', 'NV_ma', 'NV_ma');
+        return $this->belongsTo('App\nhanvien', 'NV_ma', 'NV_ma');
     }
 }
