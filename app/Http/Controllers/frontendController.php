@@ -36,10 +36,6 @@ class frontendController extends Controller
         $datainfo->d_noiDungA=$request->d_noiDungA;
         $datainfo->d_noiDungB=$request->d_noiDungB;
         $datainfo->d_noiDungC=$request->d_noiDungC;
-        $datainfo->d_noiDungfull=$request->d_noiDungA . 
-        $request->d_noiDungB . 
-        $request->d_noiDungC . 
-        $request->d_taiSan;
         $datainfo->d_taiSan=$request->d_taisan;
         $datainfo->d_dienThoai=$request->d_dienThoai;
         $datainfo->d_ngayTao=$request->d_ngayTao;
