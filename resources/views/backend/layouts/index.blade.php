@@ -35,8 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
   <!-- Các custom style của backend -->
   <link rel="stylesheet" href="{{ asset('css/custom-styles.css') }}">
+  <!--
   <link rel="stylesheet" href="{{ asset('css/tablecssdep.css')}}">
-  
+  -->
   <!-- Các custom style dành riêng cho từng view -->
   @yield('custom-css')
 </head>
@@ -185,7 +186,8 @@ desired effect
 <script src="{{ asset('theme/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('theme/adminlte/js/adminlte.min.js') }}"></script>
-<script src="{{asset('js/jquery-3.2.min.js')}}"></script>
+//fomat table tim kim
+<!--<script src="{{asset('js/jquery-3.2.min.js')}}"></script>
 <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>
 <script language="javascript">
@@ -213,6 +215,7 @@ desired effect
     new $.fn.dataTable.FixedHeader(table);
   });
 </script>
+-->
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

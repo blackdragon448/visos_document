@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            Example v
+        </title>
+        <script language="javascript">
+            var question="what is 10+10 ?";
+            var answer=20;
+            var correct='<IMG SRC="correct.gif">';
+            var incorrect='<IMG SRC="incorrect.gif">';
+            var response=prompt(question,"0");
+                if(response!=answer){
+                    if(confirm("Wrong!press OK for a second change"))
+                    response=prompt(qestion,"0");
+                }
+            var output = (response==answer)?
+            correct:incorrect;
+        
+        </script>
+        <body>
+            <script language="javascript">
+                <!--
+                document.write(output);
+                -->
+            </script>
+        </body>
+    </head>
+</html>

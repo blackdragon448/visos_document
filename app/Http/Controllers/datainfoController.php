@@ -20,7 +20,7 @@ class datainfoController extends Controller
     }
     public function create()
     {
-        $nhomhd = nhomhd::all();
+        dd($nhomhd = nhomhd::all());
         $dshopdong = danhsachhopdong::all();
         $dsnhanvien = nhanvien::where('PQ_MA', '=', 3)->get();
         $dsphanquyen = phanquyen::all();

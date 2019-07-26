@@ -38,9 +38,13 @@
 	
 	<!-- Các custom style của backend -->
 	<link rel="stylesheet" href="{{ asset('theme/cozastore/css/custom-styles.css') }}">
+	<!--
 	<link rel="stylesheet" href="{{asset('css/tablecssdep.css')}}">
+-->
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.im.css">
+	<!--
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+-->
 	<!-- Các custom style dành riêng cho từng view -->
 	@yield('custom-css')
 </head>
@@ -51,7 +55,7 @@
 
 <!-- Main Header -->
 @include('frontend.layouts.partials.header')
-
+<!--
 <style>
 		.hightlight
 		{
@@ -93,6 +97,7 @@
 			<input id="search" type="text" class="form-control">
 		</ul>
 	<div>
+-->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   

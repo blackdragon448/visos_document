@@ -7,6 +7,27 @@ Danh sách hợp đồng
 <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" crossorigin="anonymous"> -->
 
 @section('main-content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/6.1.0/jquery.mark.min.js"></script>
+<link rel="https://cdn.dataTables.net/1.10.12/css/jquery.dataTables.min.css">
+<script src="https://cdn.dataTable.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $('#datainfo').DataTable();
+        table.on=$("draw", function(){
+            var keyword=$('#datainfo>label:eq(0)>input').val();
+
+            $('#datainfo').unmark();
+            $('#datainfo').mark(keyword,{});
+        });
+    });
+</script>
+<style>
+    mark{
+        padding:0px;
+        background: yellow;
+    }
+</style>
 <div class="flash-message">
     @foreach(['danger', 'warning', 'success', 'info'] as $msg)
         @if(Session::has('alert-'. $msg))
@@ -15,7 +36,7 @@ Danh sách hợp đồng
     @endforeach
 </div>
 <a href="{{route('danhsachhopdong.create')}}" name="Them Moi" class="btn btn-primary">Them moi</a>
-<table>
+<table id="datatinfo">
     <thead>
         <tr>
             <th>Mã hợp đồng</th>
