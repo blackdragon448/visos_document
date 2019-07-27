@@ -14,6 +14,7 @@ class frontendController extends Controller
 {
     public function index()
     {
+        
         $datainfo=datainfo::paginate(5);
         return view('frontend.index')
         ->with('danhsachdulieu', $datainfo)

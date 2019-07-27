@@ -186,7 +186,22 @@ desired effect
 <script src="{{ asset('theme/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('theme/adminlte/js/adminlte.min.js') }}"></script>
-//fomat table tim kim
+<!--fomat table tim kim-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/6.1.0/jquery.mark.min.js"></script>
+<link rel="https://cdn.dataTables.net/1.10.12/css/jquery.dataTables.min.css">
+<script src="https://cdn.dataTables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $('#datainfo').DataTable();
+        table.on=$("draw", function(){
+            var keyword=$('#datainfo>label:eq(0)>input').val();
+
+            $('#datainfo').unmark();
+            $('#datainfo').mark(keyword,{});
+        });
+    });
+</script>
 <!--<script src="{{asset('js/jquery-3.2.min.js')}}"></script>
 <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>

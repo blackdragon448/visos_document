@@ -13,7 +13,7 @@ class dshopdongcontroller extends Controller
     public function index()
     {
         $dshopdong=danhsachhopdong::all();
-        return view('danhsachhopdong.index')
+        return view('newtest.index')
         ->with('danhsachhopdong', $dshopdong);
     }
     public function create()

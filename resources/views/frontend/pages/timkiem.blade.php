@@ -34,21 +34,7 @@ Danh sach ho so - visos_document
         background: yellow;
     }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/6.1.0/jquery.mark.min.js"></script>
-<link rel="https://cdn.dataTables.net/1.10.12/css/jquery.dataTables.min.css">
-<script src="https://cdn.dataTable.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        var $('#datainfo').DataTable();
-        table.on=$("draw", function(){
-            var keyword=$('#datainfo>label:eq(0)>input').val();
 
-            $('#datainfo').unmark();
-            $('#datainfo').mark(keyword,{});
-        });
-    });
-</script>
 
 @endsection
 @section('main-content')
@@ -59,6 +45,7 @@ Danh sach ho so - visos_document
         @endif
     @endforeach
 </div>
+<!--
 <div class="form-group">
     <ul>
         <label id="search">Thông tin tìm kiếm</label>
@@ -66,6 +53,22 @@ Danh sach ho so - visos_document
         <input type="submit" id="search" class="btn btn-primary" name="tim kiem">
     </ul>
 </div>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/6.1.0/jquery.mark.min.js"></script>
+<link rel="https://cdn.dataTables.net/1.10.12/css/jquery.dataTables.min.css">
+<script src="https://cdn.dataTables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $('#datainfo').DataTable();
+        table.on=$("draw", function(){
+            var keyword=$('#datainfo_filter>label:eq(0)>input').val();
+
+            $('#datainfo').unmark();
+            $('#datainfo').mark(keyword,{});
+        });
+    });
+</script>
 <table border="1px solid black" id="datainfo">
     <thead>
         <tr>
@@ -93,12 +96,13 @@ Danh sach ho so - visos_document
 {{ $danhsachdulieu->links() }}
 @endsection
 @section('custom-scripts')
+<!--
 <script src="{{asset('js/jquery-2.2.3.js')}}"></script>
 <script src="{{ asset('http://code.jquery.com/jquery-latest.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/bootstrap-fileinput/js/jquery.shorten.1.0.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.hightlight.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/dataTables.searchHigthlight.min.js') }}" type="text/javascript"></script>
-
+-->
 <script type="text/javascript">
     $(".comment").shorten({
         "showChars":200,

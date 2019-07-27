@@ -22,6 +22,7 @@ Route::get('/', function () {
     Route::resource('/danhsachnhanvien', 'nhanvienController');
     Route::resource('/danhsachdulieu','datainfoController');
     Route::resource('/datainfo','datainfoController');
+    Route::resource('/newtest','newtestController');
 // });
 Auth::routes();
 Route::get('/', 'frontendController@index')->name('frontend.home');
